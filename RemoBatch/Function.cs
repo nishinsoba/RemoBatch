@@ -91,7 +91,7 @@ namespace RemoBatch
                 LambdaLogger.Log("RoomTemperature : " + devices[0].newest_events.te.val);
 
                 //エアコンを使っているかどうか
-                data["IsUsingAircon"] = airconSettings.button == "";
+                data["IsUsingAircon"] = airconSettings.button == "power-on";
                 LambdaLogger.Log("IsUsingAircon : " + airconSettings.button);
 
                 //エアコンの設定温度
