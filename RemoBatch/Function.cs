@@ -27,7 +27,7 @@ namespace RemoBatch
             try
             {
                 string remoKey = Environment.GetEnvironmentVariable("REMO_KEY");
-                string headerValue = "Bearer " + "JJ7Q9lB5X-MqUr4tdKlAd4-HNTSUCeO2wfRpF5r_2ZY.vvXt9yq8YEaPQx7iOPBOXVzYqX4LW_WDDc0raGrW2BQ";
+                string headerValue = "Bearer " + remoKey;
 
                 //é∫ì‡ÉfÅ[É^
                 var devicesRequest = new HttpRequestMessage(HttpMethod.Get, @"https://api.nature.global/1/devices");

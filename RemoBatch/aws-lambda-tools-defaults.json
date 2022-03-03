@@ -19,7 +19,6 @@
     "function-role"        : "arn:aws:iam::829302222964:role/lambda_basic_execution",
     "function-architecture" : "x86_64",
     "tracing-mode"          : "PassThrough",
-    "environment-variables" : "\"REMO_KEY\"=\"JJ7Q9lB5X-MqUr4tdKlAd4-HNTSUCeO2wfRpF5r_2ZY.vvXt9yq8YEaPQx7iOPBOXVzYqX4LW_WDDc0raGrW2BQ\"",
     "image-tag"             : "",
     "function-description"  : ""
 }
