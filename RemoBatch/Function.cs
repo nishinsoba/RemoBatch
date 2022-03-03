@@ -65,7 +65,7 @@ namespace RemoBatch
                     var amedasResponse = httpClient.SendAsync(amedasRequest);
                     var amedasJson = amedasResponse.Result.Content.ReadAsStringAsync().Result;
                     var amedasData = JObject.Parse(@amedasJson);
-                    //アメダス 相模原観測点のデータを抽出
+                    //アメダス 海老名観測点のデータを抽出
                     sagamiharaAmedasData = amedasData.SelectToken("$..46091").ToObject<Amedas>();
 
                 }
