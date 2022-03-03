@@ -55,7 +55,7 @@ namespace RemoBatch
                 var jstAmedasStr = before15Minutesjst.ToString("yyyyMMddHH");
                 var jstAmedasStrMinute = before15Minutesjst.ToString("mm").Substring(0, 1);
 
-                Amedas sagamiharaAmedasData;
+                Amedas ebinaAmedasData;
 
                 try
                 {
@@ -66,14 +66,14 @@ namespace RemoBatch
                     var amedasJson = amedasResponse.Result.Content.ReadAsStringAsync().Result;
                     var amedasData = JObject.Parse(@amedasJson);
                     //アメダス 海老名観測点のデータを抽出
-                    sagamiharaAmedasData = amedasData.SelectToken("$..46091").ToObject<Amedas>();
+                    ebinaAmedasData = amedasData.SelectToken("$..46091").ToObject<Amedas>();
 
                 }
                 catch (Exception e)
                 {
                     LambdaLogger.Log(e.Message);
                     LambdaLogger.Log(e.StackTrace);
-                    sagamiharaAmedasData = null;
+                    ebinaAmedasData = null;
                 }
 
 
@@ -103,8 +103,8 @@ namespace RemoBatch
                 LambdaLogger.Log("AirconMode : " + airconSettings.mode);
 
                 //外気温
-                data["OutdoorTemperature"] = sagamiharaAmedasData?.temp[0];
-                LambdaLogger.Log("OutdoorTemperature : " + sagamiharaAmedasData?.temp[0]);
+                data["OutdoorTemperature"] = ebinaAmedasData?.temp[0];
+                LambdaLogger.Log("OutdoorTemperature : " + ebinaAmedasData?.temp[0]);
 
                 var result = batchDb.UpdateItemAsync(data).Result;
                 
